@@ -13,10 +13,10 @@ namespace Taller2ServiciosWeb.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class DBpesajeEntities : DbContext
+    public partial class DBExamenEntities : DbContext
     {
-        public DBpesajeEntities()
-            : base("name=DBpesajeEntities")
+        public DBExamenEntities()
+            : base("name=DBExamenEntities")
         {
         }
     

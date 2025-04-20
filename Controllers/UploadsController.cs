@@ -21,10 +21,15 @@ namespace Taller2ServiciosWeb.Controllers
             upload.request = request;
             return await upload.GrabarArchivo(false);
         }
+        [HttpGet]
+        public HttpResponseMessage ConsultarArchivo(string NombreImagen)
+        {
+            clsUpload upload = new clsUpload();
+            return upload.DescargarArchivo(NombreImagen);
+        }
 
         [HttpPut]
         [Route("Actualizar")]
-        
         public async Task<HttpResponseMessage> ActualizarArchivo(HttpRequestMessage request)
         {
             clsUpload upload = new clsUpload();

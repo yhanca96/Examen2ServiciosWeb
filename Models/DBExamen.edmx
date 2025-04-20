@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="DBpesajeModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="DBExamenModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Camion">
           <Key>
             <PropertyRef Name="Placa" />
@@ -25,7 +25,7 @@
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id" Type="int" Nullable="false" />
           <Property Name="FechaPesaje" Type="date" Nullable="false" />
           <Property Name="PlacaCamion" Type="varchar" MaxLength="10" Nullable="false" />
           <Property Name="Peso" Type="real" Nullable="false" />
@@ -55,7 +55,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="DBpesajeModelStoreContainer">
+        <EntityContainer Name="DBExamenModelStoreContainer">
           <EntitySet Name="Camion" EntityType="Self.Camion" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="FotoPesaje" EntityType="Self.FotoPesaje" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Pesaje" EntityType="Self.Pesaje" Schema="dbo" store:Type="Tables" />
@@ -72,7 +72,7 @@
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="DBpesajeModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="DBExamenModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="Camion">
           <Key>
             <PropertyRef Name="Placa" />
@@ -95,7 +95,7 @@
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id" Type="Int32" Nullable="false" />
           <Property Name="FechaPesaje" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="PlacaCamion" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Peso" Type="Single" Nullable="false" />
@@ -127,7 +127,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="DBpesajeEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="DBExamenEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Camions" EntityType="Self.Camion" />
           <EntitySet Name="FotoPesajes" EntityType="Self.FotoPesaje" />
           <EntitySet Name="Pesajes" EntityType="Self.Pesaje" />
@@ -145,9 +145,9 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="DBpesajeModelStoreContainer" CdmEntityContainer="DBpesajeEntities">
+        <EntityContainerMapping StorageEntityContainer="DBExamenModelStoreContainer" CdmEntityContainer="DBExamenEntities">
           <EntitySetMapping Name="Camions">
-            <EntityTypeMapping TypeName="DBpesajeModel.Camion">
+            <EntityTypeMapping TypeName="DBExamenModel.Camion">
               <MappingFragment StoreEntitySet="Camion">
                 <ScalarProperty Name="Placa" ColumnName="Placa" />
                 <ScalarProperty Name="Marca" ColumnName="Marca" />
@@ -156,7 +156,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="FotoPesajes">
-            <EntityTypeMapping TypeName="DBpesajeModel.FotoPesaje">
+            <EntityTypeMapping TypeName="DBExamenModel.FotoPesaje">
               <MappingFragment StoreEntitySet="FotoPesaje">
                 <ScalarProperty Name="idFotoPesaje" ColumnName="idFotoPesaje" />
                 <ScalarProperty Name="ImagenVehiculo" ColumnName="ImagenVehiculo" />
@@ -165,7 +165,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Pesajes">
-            <EntityTypeMapping TypeName="DBpesajeModel.Pesaje">
+            <EntityTypeMapping TypeName="DBExamenModel.Pesaje">
               <MappingFragment StoreEntitySet="Pesaje">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="FechaPesaje" ColumnName="FechaPesaje" />

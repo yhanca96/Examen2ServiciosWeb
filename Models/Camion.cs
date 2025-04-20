@@ -25,7 +25,7 @@ namespace Taller2ServiciosWeb.Models
         public string Marca { get; set; }
         public int NumeroEjes { get; set; }
         [JsonIgnore]
-    
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Pesaje> Pesajes { get; set; }
     }

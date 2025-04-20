@@ -12,7 +12,7 @@ namespace Taller2ServiciosWeb.Clases
     public class clsPesaje
     {
 
-        private DBpesajeEntities dbPesaje = new DBpesajeEntities();
+        private DBExamenEntities dbPesaje = new DBExamenEntities();
         public Pesaje pesaje { get; set; }
         public Camion camion { get; set; }
 
@@ -88,6 +88,27 @@ namespace Taller2ServiciosWeb.Clases
                            };
 
             return consulta;
+        }
+        public string EliminarImagenPesaje(string NombreImagen)
+        {
+            try
+            {
+                FotoPesaje foto = dbPesaje.FotoPesajes.FirstOrDefault(f => f.ImagenVehiculo == NombreImagen);
+                if (foto != null)
+                {
+                    dbPesaje.FotoPesajes.Remove(foto);
+                    dbPesaje.SaveChanges();
+                    return "Registro eliminado de la base de datos.";
+                }
+                else
+                {
+                    return "No se encontró la imagen en la base de datos.";
+                }
+            }
+            catch (Exception ex)
+            {
+                return "Error al eliminar registro de la base de datos: " + ex.Message;
+            }
         }
 
     }
